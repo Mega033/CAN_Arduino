@@ -1,4 +1,5 @@
 //CAN Transmitter Code (Arduino Nano):
+
 #include <SPI.h>          //Library for using SPI Communication 
 #include <mcp2515.h>      //Library for using CAN Communication
 #include <DHT.h>          //Library for using DHT sensor 
@@ -28,8 +29,10 @@ void loop()
 {
   int h = dht.readHumidity();       //Gets Humidity value
   int t = dht.readTemperature();    //Gets Temperature value
-  Serial.print(t);  
-  Serial.println(" Hello");
+  Serial.print("H: ");
+  Serial.print(h);
+  Serial.print(" T: ");
+  Serial.println(t);
 
   canMsg.can_id  = 0x036;           //CAN id as 0x036
   canMsg.can_dlc = 8;               //CAN data length as 8
